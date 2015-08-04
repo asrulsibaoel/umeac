@@ -66,6 +66,12 @@ class LoginForm extends Model {
     public function getUser() {
         if ($this->_user === false) {
             $this->_user = User::findByUsername($this->username);
+            $session = new \yii\web\Session();
+            
+            $session['username'] = $this->getUser()->username;
+            $session['roles'] = $this->getUser()->roles;
+            $session['nik'] = $this->getUser()->nik;
+            Yii::error($session);
         }
 
         return $this->_user;

@@ -7,6 +7,9 @@ use yii\db\ActiveRecord;
 use yii\helpers\Security;
 use yii\web\IdentityInterface;
 use Yii;
+use yii\web\Application;
+use yii\web\Session;
+use app\models\User;
 
 /**
  * This is the model class for table "user".
@@ -161,6 +164,21 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface {
      */
     public function removePasswordResetToken() {
         $this->password_reset_token = null;
+    }
+
+    public function menu() {
+        $session = new Session();
+        $roles = $session['roles'];
+        $menu = array();
+        if ($roles == 'admin') {
+            $menu = array(
+                array('head' => 'Dashboard', 'icon' => '', 'sub' => array(
+                        array('title' => 'sub Menu', 'url' => Yii::$app->urlManager()->createUrl()),
+                    ),
+                ),
+            );
+        }
+        return $menu;
     }
 
     /** EXTENSION MOVIE * */
