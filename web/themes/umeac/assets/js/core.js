@@ -62,36 +62,36 @@ $(document).ready(function() {
 		$(this).parent().addClass('input-focus');		
 	})	
 	
-	$('#my-task-list').popover({ 
-        html : true, 
-        content: function() {
-          return $('#notification-list').html();
-        }
-    });
+//	$('#my-task-list').popover({ 
+//        html : true, 
+//        content: function() {
+//          return $('#notification-list').html();
+//        }
+//    });
 
 //*********************************** BEGIN CHAT POPUP*****************************
-	 $('.chat-menu-toggle').sidr({
-		name:'sidr',
-		side: 'right',
-		complete:function(){		 
-		}
-	});
-	$(".simple-chat-popup").click(function(){
-		$(this).addClass('hide');
-		$('#chat-message-count').addClass('hide');	
-	});
-
-	setTimeout( function(){
-		$('#chat-message-count').removeClass('hide');	
-		$('#chat-message-count').addClass('animated bounceIn');
-		$('.simple-chat-popup').removeClass('hide');			
-		$('.simple-chat-popup').addClass('animated fadeIn');		
-	},5000);	
-	setTimeout( function(){
-		$('.simple-chat-popup').addClass('hide');			
-		$('.simple-chat-popup').removeClass('animated fadeIn');		
-		$('.simple-chat-popup').addClass('animated fadeOut');		
-	},8000);
+//	 $('.chat-menu-toggle').sidr({
+//		name:'sidr',
+//		side: 'right',
+//		complete:function(){		 
+//		}
+//	});
+//	$(".simple-chat-popup").click(function(){
+//		$(this).addClass('hide');
+//		$('#chat-message-count').addClass('hide');	
+//	});
+//
+//	setTimeout( function(){
+//		$('#chat-message-count').removeClass('hide');	
+//		$('#chat-message-count').addClass('animated bounceIn');
+//		$('.simple-chat-popup').removeClass('hide');			
+//		$('.simple-chat-popup').addClass('animated fadeIn');		
+//	},5000);	
+//	setTimeout( function(){
+//		$('.simple-chat-popup').addClass('hide');			
+//		$('.simple-chat-popup').removeClass('animated fadeIn');		
+//		$('.simple-chat-popup').addClass('animated fadeOut');		
+//	},8000);
 	
 //*********************************** END CHAT POPUP*****************************	
 	
@@ -425,9 +425,7 @@ $(document).ready(function() {
 	
 	 $("img").unveil();
 });
-$( window ).resize(function() {
-	  $.sidr('close', 'sidr');
-});
+
 function calculateHeight(){
 		var contentHeight=parseInt($('.page-content').height());
 		if(911 > contentHeight){	
