@@ -11,19 +11,21 @@ use Yii;
  * @property string $class_name
  * @property integer $created_user_id
  */
-class Classroom extends \yii\db\ActiveRecord {
-
+class Classroom extends \yii\db\ActiveRecord
+{
     /**
      * @inheritdoc
      */
-    public static function tableName() {
+    public static function tableName()
+    {
         return 'classroom';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules() {
+    public function rules()
+    {
         return [
             [['created_user_id'], 'integer'],
             [['class_name'], 'string', 'max' => 255]
@@ -33,12 +35,12 @@ class Classroom extends \yii\db\ActiveRecord {
     /**
      * @inheritdoc
      */
-    public function attributeLabels() {
+    public function attributeLabels()
+    {
         return [
             'id' => 'ID',
             'class_name' => 'Class Name',
             'created_user_id' => 'Created User ID',
         ];
     }
-
 }
