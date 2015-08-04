@@ -5,6 +5,8 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\models\User;
+use yii\widgets\Menu;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -69,15 +71,11 @@ if (\Yii::$app->user->isGuest) {
                         <li class="dropdown"> <a id="main-menu-toggle" href="#main-menu"  class="" > <div class="iconset top-menu-toggle-white"></div> </a> </li>		 
                     </ul>
                     <!-- BEGIN LOGO -->	
-                    <a href="index.html"><img src="assets/img/logo.png" class="logo" alt=""  data-src="assets/img/logo.png" data-src-retina="assets/img/logo2x.png" width="106" height="21"/></a>
-                    <!-- END LOGO --> 
-
+                    <a href="index.html"><img src="<?= $this->theme->baseUrl ?>/assets/img/logo.png" class="logo" alt=""  data-src="<?= $this->theme->baseUrl ?>/assets/img/logo.png" data-src-retina="<?= $this->theme->baseUrl ?>/assets/img/logo2x.png" width="106" height="21"/></a>
+                    <!-- END LOGO -->
                 </div>
                 <!-- END RESPONSIVE MENU TOGGLER --> 
                 <div class="header-quick-nav" > 
-                    <!-- BEGIN TOP NAVIGATION MENU -->
-                    
-                    <!-- END TOP NAVIGATION MENU -->
                     <!-- BEGIN CHAT TOGGLER -->
                     <div class="pull-right"> 
                         <div class="chat-toggler">	
@@ -89,10 +87,9 @@ if (\Yii::$app->user->isGuest) {
                                     </div>						
                                 </div> 
                                 <div class="iconset top-down-arrow"></div>
-                            </a>	
-                            
+                            </a>
                             <div class="profile-pic"> 
-                                <img src="assets/img/profiles/avatar_small.jpg"  alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="35" height="35" /> 
+                                <img src="<?= $this->theme->baseUrl ?>/assets/img/profiles/avatar_small.jpg"  alt="" data-src="<?= $this->theme->baseUrl ?>/assets/img/profiles/avatar_small.jpg" data-src-retina="<?= $this->theme->baseUrl ?>/assets/img/profiles/avatar_small2x.jpg" width="35" height="35" /> 
                             </div>       			
                         </div>
                         <ul class="nav quick-section ">
@@ -111,18 +108,15 @@ if (\Yii::$app->user->isGuest) {
                                     <li><a href="login.html"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
                                 </ul>
                             </li> 
-                            <li class="quicklinks"> <span class="h-seperate"></span></li> 
-                             
+                            <li class="quicklinks"> <span class="h-seperate"></span></li>
                         </ul>
                     </div>
                     <!-- END CHAT TOGGLER -->
                 </div> 
                 <!-- END TOP NAVIGATION MENU --> 
-
             </div>
             <!-- END TOP NAVIGATION BAR --> 
         </div>
-
         <!-- END HEADER --> 
         <!-- BEGIN CONTAINER -->
         <div class="page-container row"> 
@@ -131,7 +125,7 @@ if (\Yii::$app->user->isGuest) {
                 <!-- BEGIN MINI-PROFILE -->
                 <div class="user-info-wrapper">	
                     <div class="profile-wrapper">
-                        <img src="assets/img/profiles/avatar.jpg"  alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" width="69" height="69" />
+                        <img src="<?= $this->theme->baseUrl ?>/assets/img/profiles/avatar.jpg"  alt="" data-src="<?= $this->theme->baseUrl ?>/assets/img/profiles/avatar.jpg" data-src-retina="<?= $this->theme->baseUrl ?>/assets/img/profiles/avatar2x.jpg" width="69" height="69" />
                     </div>
                     <div class="user-info">
                         <div class="greeting">Welcome</div>
@@ -163,16 +157,28 @@ if (\Yii::$app->user->isGuest) {
                         </ul>
                     </li>
                     
-                    
-                    
-                    
-                    
-                      
                 </ul>
-                
+                <?php
+                    echo Menu::widget([
+                        'items' => [
+                            ['label' => '<i class="icon-custom-portlets"></i><span class="title">Home</span>', 'url' => ['site/index']],
+                            ['label' => '<i class="icon-custom-portlets"></i><span class="title">About</span>', 'url' => ['site/about']],
+                            ['label' => '<i class="icon-custom-portlets"></i><span class="title">Products</span>',
+                                'url' => ['product/index'],
+                                'options' => ['class' => 'dropdown'],
+                                'template' => '<a href="{url}">{label}</a>',
+                                'items' => [
+                                    ['label' => 'New Arrivals', 'url' => ['product/new']],
+                                    ['label' => 'Most Popular', 'url' => ['product/popular']],
+                                ]
+                            ],
+                        ],
+//                        'linkTemplate' => '<i class="icon-custom-portlets"></i> <span class="title">{label}',
+                        'submenuTemplate' => "\n<ul class='sub-menu'>\n{items}\n</ul>\n",
+                    ]);
+                    ?>
                 <!-- END SIDEBAR MENU --> 
             </div>
-            
             <!-- END SIDEBAR --> 
             <!-- BEGIN PAGE CONTAINER-->
             <div class="page-content"> 
@@ -186,12 +192,12 @@ if (\Yii::$app->user->isGuest) {
                 </div>
                 <div class="clearfix"></div>
                 <div class="content">
-                    <?= $content?>
+                    <?= $content ?>
                     <!-- END PAGE --> 
                 </div>
             </div>
             <!-- BEGIN CHAT --> 
-            
+
             <!-- END CHAT --> 
             <!-- END CONTAINER --> 
         </div>
