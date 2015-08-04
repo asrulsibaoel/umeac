@@ -8,20 +8,28 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="kuis-category-form">
+<div class="col-md-12">
+    <div class="grid simple">
 
-    <?php $form = ActiveForm::begin(); ?>
+        <div class="grid-body no-border"> <br>
+            <div class="row">
+                <div class="kuis-category-form">
 
-    <?= $form->field($model, 'tutorial_id')->textInput(['maxlength' => true]) ?>
+                    <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'kuis_category_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'created_user_id')->textInput() ?>
+                    <?= $form->field($model, 'kuis_category_name')->textInput(['maxlength' => true]) ?>
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                    <?= $form->field($model, 'created_user_id')->textInput() ?>
+
+                    <div class="form-group">
+                        <?= Html::submitButton($model->isNewRecord ? 'Tambah' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                    </div>
+
+                    <?php ActiveForm::end(); ?>
+
+                </div>
+            </div>
+        </div>
     </div>
-
-    <?php ActiveForm::end(); ?>
-
 </div>

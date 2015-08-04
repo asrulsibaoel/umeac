@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\User */
@@ -14,7 +15,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nik')->textInput() ?>
 
-    <?= $form->field($model, 'classroom_id')->textInput() ?>
+   <?php echo Html::activeDropDownList($model, 'classroom_id',
+      ArrayHelper::map(app\models\Classroom::find()->all(), 'id', 'class_name'), ['prompt' => 'Select']) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 

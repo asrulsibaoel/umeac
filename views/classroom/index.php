@@ -9,25 +9,30 @@ use yii\grid\GridView;
 $this->title = 'Classrooms';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="classroom-index">
+<div class="col-md-12">
+    <div class="grid simple ">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+        <div class="grid-body no-border">
+            <h3>Daftar  <span class="semi-bold">Kelas</span></h3>
+            <div class="classroom-index">
+                <p>
+                    <?= Html::a('Tambah Kelas', ['create'], ['class' => 'btn btn-success']) ?>
+                </p>
 
-    <p>
-        <?= Html::a('Create Classroom', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+                <?php
+                echo GridView::widget([
+                    'dataProvider' => $dataProvider,
+                    'columns' => [
+                        ['class' => 'yii\grid\SerialColumn'],
+//            'id',
+                        'class_name',
+                        'created_user_id',
+                        ['class' => 'yii\grid\ActionColumn'],
+                    ],
+                ]);
+                ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'class_name',
-            'created_user_id',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
+            </div>
+        </div>
+    </div>
 </div>

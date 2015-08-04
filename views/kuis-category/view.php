@@ -29,7 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'tutorial_id',
             'kuis_category_name',
             'created_user_id',
         ],

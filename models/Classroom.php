@@ -28,6 +28,7 @@ class Classroom extends \yii\db\ActiveRecord
     {
         return [
             [['created_user_id'], 'integer'],
+            [['class_name'], 'required'],
             [['class_name'], 'string', 'max' => 255]
         ];
     }

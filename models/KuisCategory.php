@@ -29,7 +29,7 @@ class KuisCategory extends \yii\db\ActiveRecord
     {
         return [
             [['created_user_id'], 'integer'],
-            [['tutorial_id', 'kuis_category_name'], 'string', 'max' => 45]
+            [[ 'kuis_category_name'], 'string', 'max' => 45]
         ];
     }
 
@@ -40,7 +40,6 @@ class KuisCategory extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'tutorial_id' => 'Tutorial ID',
             'kuis_category_name' => 'Kuis Category Name',
             'created_user_id' => 'Created User ID',
         ];
