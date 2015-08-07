@@ -75,7 +75,8 @@ if (\Yii::$app->user->isGuest) {
                     <!-- END LOGO -->
                 </div>
                 <!-- END RESPONSIVE MENU TOGGLER --> 
-                <div class="header-quick-nav" > 
+                <div class="header-quick-nav" >
+                    
                     <!-- BEGIN CHAT TOGGLER -->
                     <div class="pull-right"> 
                         <div class="chat-toggler">	
@@ -161,9 +162,9 @@ if (\Yii::$app->user->isGuest) {
                 <?php
                     echo Menu::widget([
                         'items' => [
-                            ['label' => '<i class="icon-custom-portlets"></i><span class="title">Home</span>', 'url' => ['site/index']],
-                            ['label' => '<i class="icon-custom-portlets"></i><span class="title">About</span>', 'url' => ['site/about']],
-                            ['label' => '<i class="icon-custom-portlets"></i><span class="title">Products</span>',
+                            ['label' => 'Home', 'url' => ['site/index'],'icon' => 'question-sign',],
+                            ['label' => 'about', 'url' => ['site/about']],
+                            ['label' => 'ss',
                                 'url' => ['product/index'],
                                 'options' => ['class' => 'dropdown'],
                                 'template' => '<a href="{url}">{label}</a>',

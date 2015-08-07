@@ -36,7 +36,6 @@ class Kuis extends \yii\db\ActiveRecord
         return [
             [['kuis_category_id', 'tutorial_id', 'created_user_id'], 'integer'],
             [['description'], 'string'],
-            [['alias'], 'required'],
             [['time', 'created'], 'safe'],
             [['kuis_name', 'alias'], 'string', 'max' => 255],
             [['total'], 'string', 'max' => 45]
