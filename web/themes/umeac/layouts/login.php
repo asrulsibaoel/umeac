@@ -1,14 +1,17 @@
 <?php
+
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use app\assets\AppAsset;
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\LoginForm */
-
+AppAsset::register($this);
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,31 +22,23 @@ $this->params['breadcrumbs'][] = $this->title;
         <meta content="" name="description" />
         <meta content="" name="author" />
         <!-- BEGIN CORE CSS FRAMEWORK -->
-        <link href="<?= $this->theme->baseUrl ?>/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen"/>
-        <link href="<?= $this->theme->baseUrl ?>/assets/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $this->theme->baseUrl ?>/assets/plugins/boostrapv3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $this->theme->baseUrl ?>/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $this->theme->baseUrl ?>/assets/css/animate.min.css" rel="stylesheet" type="text/css"/>
-        <!-- END CORE CSS FRAMEWORK -->
-        <!-- BEGIN CSS TEMPLATE -->
-        <link href="<?= $this->theme->baseUrl ?>/assets/css/style.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $this->theme->baseUrl ?>/assets/css/responsive.css" rel="stylesheet" type="text/css"/>
-        <link href="<?= $this->theme->baseUrl ?>/assets/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
         <!-- END CSS TEMPLATE -->
+        <?php $this->head() ?>
     </head>
     <!-- END HEAD -->
     <!-- BEGIN BODY -->
+    <?php $this->beginBody() ?>
     <body class="error-body no-top">
         <div class="container">
             <div class="row login-container column-seperation">  
                 <div class="col-md-5 col-md-offset-1">
                     <h2>UMEAC</h2>
-                    <p>University Negeri Malang Education Asisment Center<br><br>
+                    <p>University Negeri Malang Education Asisment Center<?= Yii::$app->homeUrl ?><br><br>
                     <p><b>Di bawah naungan:</b><br>
-                        <img src="<?= $this->theme->baseUrl ?>/um.png"  alt="" data-src="<?= $this->theme->baseUrl ?>/um.png" data-src-retina="<?= $this->theme->baseUrl ?>/um.png" style="width: 90%;" />
+                        <img src="<?= Yii::$app->homeUrl ?>themes/umeac/um.png"  alt="" data-src="<?= Yii::$app->homeUrl ?>themes/umeac/um.png" data-src-retina="<?= Yii::$app->homeUrl ?>themes/umeac/um.png" style="width: 90%;" />
                 </div>
                 <div class="col-md-5 "> <br>
-                    <?= $content?>
+                    <?= $content ?>
                 </div>
 
 
@@ -51,12 +46,9 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <!-- END CONTAINER -->
         <!-- BEGIN CORE JS FRAMEWORK-->
-        <script src="<?= $this->theme->baseUrl ?>/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
-        <script src="<?= $this->theme->baseUrl ?>/assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="<?= $this->theme->baseUrl ?>/assets/plugins/pace/pace.min.js" type="text/javascript"></script>
-        <script src="<?= $this->theme->baseUrl ?>/assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-        <script src="<?= $this->theme->baseUrl ?>/assets/js/login.js" type="text/javascript"></script>
         <!-- BEGIN CORE TEMPLATE JS -->
         <!-- END CORE TEMPLATE JS -->
+        <?php $this->endBody() ?>
     </body>
 </html>
+<?php $this->endPage() ?>
