@@ -30,7 +30,7 @@ if (\Yii::$app->user->isGuest) {
         <meta content="" name="author" />
         <?= Html::csrfMetaTags() ?>
         <!-- BEGIN PLUGIN CSS -->
-        
+
         <?php $this->head() ?>
     </head>
     <!-- END HEAD -->
@@ -52,19 +52,25 @@ if (\Yii::$app->user->isGuest) {
                 </div>
                 <!-- END RESPONSIVE MENU TOGGLER --> 
                 <div class="header-quick-nav" >
-                    
+
                     <!-- BEGIN CHAT TOGGLER -->
                     <div class="pull-right"> 
                         <div class="chat-toggler">	
-                            <a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"  data-content='' data-toggle="dropdown" data-original-title="Notifications">
-                                <div class="user-details"> 
-                                    <div class="username">
-                                        <span class="badge badge-important">3</span> 
-                                        Faried <span class="bold">Wahyu</span>									
-                                    </div>						
-                                </div> 
-                                <div class="iconset top-down-arrow"></div>
-                            </a>
+
+                            <div class="user-details"> 
+                                <div class="username">
+                                    Faried <span class="bold">Wahyu</span>									
+                                </div>						
+                            </div> 
+                            <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
+                                <li><a href="user-profile.html"> My Account</a>
+                                </li>
+
+                                <li class="divider"></li>                
+                                <li><a href="login.html"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
+                            </ul>
+                            <div class="iconset top-down-arrow"></div>
+
                             <div class="profile-pic"> 
                                 <img src="<?= Yii::$app->homeUrl ?>themes/umeac/assets/img/profiles/avatar_small.jpg"  alt="" data-src="<?= Yii::$app->homeUrl ?>themes/umeac/assets/img/profiles/avatar_small.jpg" data-src-retina="<?= Yii::$app->homeUrl ?>themes/umeac/assets/img/profiles/avatar_small2x.jpg" width="35" height="35" /> 
                             </div>       			
@@ -117,14 +123,14 @@ if (\Yii::$app->user->isGuest) {
                     <li class="start active "> <a href="index.html"> <i class="icon-custom-home"></i> <span class="title">Dashboard</span> <span class="selected"></span></a> </li>
                     <li class=""> <a href="javascript:;"> <i class="icon-custom-ui"></i> <span class="title">Daftar Soal</span> <span class="arrow "></span> </a>
                         <ul class="sub-menu">
-                            <li > <a href="typography.html"> Kategori </a> </li>
-                            <li > <a href="messages_notifications.html"> List Soal </a> </li>
+                            <li > <a href="<?php echo Yii::$app->urlManager->createUrl('kuis-category') ?>"> Kategori </a> </li>
+                            <li > <a href="<?php echo Yii::$app->urlManager->createUrl('kuis') ?>"> List Soal </a> </li>
                         </ul>
                     </li>
-                    <li class=""> <a href="javascript:;"> <i class="icon-custom-form"></i> <span class="title">Sisa dan kelas</span> <span class="arrow "></span> </a>
+                    <li class=""> <a href="javascript:;"> <i class="icon-custom-form"></i> <span class="title">Siswa dan Kelas</span> <span class="arrow "></span> </a>
                         <ul class="sub-menu">
-                            <li > <a href="form_elements.html">Form Elements </a> </li>
-                            <li > <a href="form_validations.html">Form Validations</a> </li>
+                            <li > <a href="<?php echo Yii::$app->urlManager->createUrl('classroom') ?>">Kelas</a> </li>
+                            <li > <a href="<?php echo Yii::$app->urlManager->createUrl('user') ?>">Siswa</a> </li>
                         </ul>
                     </li>
                     <li class=""> <a href="javascript:;"> <i class="icon-custom-portlets"></i> <span class="title">Report</span> <span class="arrow "></span> </a>
@@ -133,27 +139,9 @@ if (\Yii::$app->user->isGuest) {
                             <li > <a href="grids_draggable.html">Draggable Grids </a> </li>
                         </ul>
                     </li>
-                    
+
                 </ul>
-                <?php
-                    echo Menu::widget([
-                        'items' => [
-                            ['label' => 'Home', 'url' => ['site/index'],'icon' => 'question-sign',],
-                            ['label' => 'about', 'url' => ['site/about']],
-                            ['label' => 'ss',
-                                'url' => ['product/index'],
-                                'options' => ['class' => 'dropdown'],
-                                'template' => '<a href="{url}">{label}</a>',
-                                'items' => [
-                                    ['label' => 'New Arrivals', 'url' => ['product/new']],
-                                    ['label' => 'Most Popular', 'url' => ['product/popular']],
-                                ]
-                            ],
-                        ],
-//                        'linkTemplate' => '<i class="icon-custom-portlets"></i> <span class="title">{label}',
-                        'submenuTemplate' => "\n<ul class='sub-menu'>\n{items}\n</ul>\n",
-                    ]);
-                    ?>
+
                 <!-- END SIDEBAR MENU --> 
             </div>
             <!-- END SIDEBAR --> 
